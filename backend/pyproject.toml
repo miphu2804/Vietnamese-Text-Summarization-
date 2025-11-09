@@ -1,0 +1,16 @@
+[project]
+name = "tmg301-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "black>=25.9.0",
+    "chunkformer>=1.2.1",
+    "fastapi>=0.121.1",
+    "isort>=7.0.0",
+    "pydantic>=2.12.4",
+    "pydantic-settings>=2.11.0",
+    "transformers>=4.57.1",
+    "uvicorn>=0.38.0",
+]
