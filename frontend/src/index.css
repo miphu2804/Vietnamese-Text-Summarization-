@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@layer base {
+  body {
+    font-family: 'Inter', 'system-ui', 'sans-serif';
+  }
+}
+
+@layer components {
+  /* Vibrant panels for results */
+  .result-card {
+    @apply bg-white/90 backdrop-blur rounded-xl shadow-lg border border-blue-200 p-4; 
+    @apply ring-1 ring-inset ring-blue-100; 
+  }
+
+  .gradient-panel {
+    @apply rounded-xl p-0.5 bg-gradient-to-r from-fuchsia-400 via-sky-400 to-violet-400; 
+  }
+
+  .gradient-title {
+    @apply bg-gradient-to-r from-blue-600 via-fuchsia-600 to-cyan-600 bg-clip-text text-transparent; 
+  }
+
+  .textarea-light {
+    @apply w-full min-h-[160px] resize-y rounded-lg bg-white/95 text-gray-900 placeholder:text-gray-400; 
+    @apply border border-blue-200 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent; 
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium;
+  }
+
+  .btn-secondary {
+    @apply bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium;
+  }
+
+  .card {
+    @apply bg-white/90 rounded-lg shadow-md p-6 border border-blue-200;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/95 text-gray-900;
+  }
+}
