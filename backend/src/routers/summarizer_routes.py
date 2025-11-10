@@ -3,7 +3,7 @@ import logging
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
 
-from backend.src.engine.summarizer import TextToSummarizer
+from src.engine.summarizer import TextToSummarizer
 from src.schemas.summarizer_schema import SummarizerRequest
 
 logging.basicConfig(level=logging.INFO)
@@ -20,7 +20,7 @@ async def summarize_text(request: SummarizerRequest):
         raise HTTPException(status_code=503, detail="Summarizer service not available")
 
     try:
-        summary = summarizer_service.speak(request.text, None)
+        summary = summarizer_service.summarize(request.text)
 
         logger.info(f"Summarization completed for text length: {len(request.text)}")
         return JSONResponse(
@@ -44,7 +44,7 @@ async def summarize_form_text(request: dict):
         if not text:
             raise HTTPException(status_code=400, detail="Text is required")
 
-        summary = summarizer_service.speak(text, None)
+        summary = summarizer_service.summarize(text)
 
         logger.info(f"Summarization completed for text: '{text[:50]}...'")
         return JSONResponse(

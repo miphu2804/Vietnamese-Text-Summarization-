@@ -5,7 +5,7 @@ from typing import List
 
 from fastapi import APIRouter, File, HTTPException, UploadFile
 
-from backend.src.engine.STT import SpeechToText
+from src.engine.STT import SpeechToText
 from src.schemas.stt_schema import STTResponse
 
 logging.basicConfig(level=logging.INFO)
