@@ -8,14 +8,14 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-sky-50 to-emerald-50 text-gray-900">
       <header className="border-b bg-white/80 backdrop-blur">
-        <div className="mx-auto max-w-5xl px-6 py-4">
+        <div className="mx-auto max-w-7xl px-6 py-4">
           <h1 className="text-2xl font-semibold gradient-title">Vietnamese news speech to text summarization</h1>
           <p className="text-sm text-gray-600">Upload audio/video to transcribe and summarize</p>
         </div>
       </header>
 
-      <main className="mx-auto max-w-5xl px-6 py-8 grid gap-6 md:grid-cols-2">
-        <section className="space-y-4">
+      <main className="mx-auto max-w-7xl px-6 py-8 grid gap-8 lg:grid-cols-12">
+        <section className="space-y-4 lg:col-span-5">
           <h2 className="text-lg font-medium">1) Upload file</h2>
           <AudioUploader onFileUploaded={(file) => processAudio(file)} />
 
@@ -35,7 +35,7 @@ function App() {
           )}
         </section>
 
-        <section className="space-y-4">
+        <section className="space-y-4 lg:col-span-7">
           <h2 className="text-lg font-medium">2) Results</h2>
           <div className="grid gap-4">
             <div className="gradient-panel">

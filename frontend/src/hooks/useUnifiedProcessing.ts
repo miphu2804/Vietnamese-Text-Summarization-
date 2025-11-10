@@ -5,12 +5,14 @@ import {
   setTranscriptionResult,
   setLoading as setTranscriptionLoading,
   setError as setTranscriptionError,
+  resetTranscriptionState,
 } from '../store/slices/transcriptionSlice';
 import {
   setSummary,
   setOriginalText,
   setLoading as setSummarizationLoading,
   setError as setSummarizationError,
+  resetSummarizationState,
 } from '../store/slices/summarizationSlice';
 import { unifiedAPI, handleAPIError } from '../services/api';
 
@@ -33,6 +35,10 @@ export const useUnifiedProcessing = () => {
 
   const processAudio = useCallback(async (file: File) => {
     try {
+      // Clear previous results immediately when a new file is selected
+      dispatch(resetTranscriptionState());
+      dispatch(resetSummarizationState());
+
       setProcessingState({
         stage: 'transcribing',
         progress: 0,
