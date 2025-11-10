@@ -32,25 +32,3 @@ async def summarize_text(request: SummarizerRequest):
         raise HTTPException(status_code=500, detail=f"Summarization error: {str(e)}")
 
 
-@router.post("/summarize-form")
-async def summarize_form_text(request: dict):
-    """Summarize Vietnamese text from form data"""
-    if not summarizer_service:
-        raise HTTPException(status_code=503, detail="Summarizer service not available")
-
-    try:
-        text = request.get("text", "").strip()
-
-        if not text:
-            raise HTTPException(status_code=400, detail="Text is required")
-
-        summary = summarizer_service.summarize(text)
-
-        logger.info(f"Summarization completed for text: '{text[:50]}...'")
-        return JSONResponse(
-            content={"summary": summary, "original_text": text[:100] + "..."}
-        )
-
-    except Exception as e:
-        logger.error(f"Summarization error: {e}")
-        raise HTTPException(status_code=500, detail=f"Summarization error: {str(e)}")
