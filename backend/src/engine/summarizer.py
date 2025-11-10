@@ -4,9 +4,9 @@ from src.app_config import app_config
 
 class TextToSummarizer:
     def __init__(self):
-        self.tokenizer = AutoTokenizer.from_pretrained(app_config.TTS_MODEL_NAME)
+        self.tokenizer = AutoTokenizer.from_pretrained(app_config.SUMMARIZER_MODEL_NAME)
         self.model = AutoModelForSeq2SeqLM.from_pretrained(
-            app_config.TTS_MODEL_NAME
+            app_config.SUMMARIZER_MODEL_NAME
         )
         self.load_device()
 
